@@ -37,13 +37,14 @@ To run this project locally, follow these simple steps:
     Simply open the `index.html` file in your preferred web browser.
 
 ## 📂 Project Structure
-
+```
 Contact_Form/
 │
 ├── index.html
 ├── assets/
 │   ├── style.css
 │   └── main.js
+```
 
 ## 🎨 Customization
 
