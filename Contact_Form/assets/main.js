@@ -1,76 +1,51 @@
-document.getElementById('contactForm').addEventListener('submit', function (e) {
-    e.preventDefault();
+function validateForm() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const subject = document.getElementById('subject').value.trim();
+    const message = document.getElementById('message').value.trim();
 
-    // Reset error states
-    document.querySelectorAll('.form-group').forEach(group => {
-        group.classList.remove('invalid');
-    });
+    const nameError = document.getElementById('nameError');
+    const emailError = document.getElementById('emailError');
+    const subjectError = document.getElementById('subjectError');
+    const messageError = document.getElementById('messageError');
 
     let isValid = true;
 
-    // Validate Full Name
-    const fullName = document.getElementById('fullName').value.trim();
-    if (fullName === '') {
-        showError('fullName', 'nameError');
+    nameError.style.display = 'none';
+    emailError.style.display = 'none';
+    subjectError.style.display = 'none';
+    messageError.style.display = 'none';
+
+    if (!name) {
+        nameError.style.display = 'block';
         isValid = false;
     }
 
-    // Validate Email
-    const email = document.getElementById('email').value.trim();
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (email === '' || !emailRegex.test(email)) {
-        showError('email', 'emailError');
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailPattern.test(email)) {
+        emailError.style.display = 'block';
         isValid = false;
     }
 
-    // Validate Subject
-    const subject = document.getElementById('subject').value;
-    if (subject === '') {
-        showError('subject', 'subjectError');
+    if (!subject) {
+        subjectError.style.display = 'block';
         isValid = false;
     }
 
-    // Validate Message
-    const message = document.getElementById('message').value.trim();
-    if (message === '') {
-        showError('message', 'messageError');
+    if (!message) {
+        messageError.style.display = 'block';
         isValid = false;
     }
 
-    // If valid, show popup and reset form
     if (isValid) {
-        showSuccessPopup();
-        this.reset();
+        alert('Form submitted successfully!');
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('subject').value = '';
+        document.getElementById('message').value = '';
     }
-});
-
-function showError(inputId, errorId) {
-    document.getElementById(errorId).style.display = 'block';
-    document.getElementById(inputId).parentElement.classList.add('invalid');
 }
 
-function showSuccessPopup() {
-    const popup = document.getElementById('successPopup');
-    popup.style.display = 'block';
-    setTimeout(() => {
-        popup.style.display = 'none';
-    }, 3000);
-}
-
-// Toggle Dark Mode
-const toggleBtn = document.getElementById('toggleMode');
-
-toggleBtn.addEventListener('click', () => {
+function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
-
-    // Save to localStorage
-    const isDark = document.body.classList.contains('dark-mode');
-    localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
-});
-
-// Load mode on page load
-window.addEventListener('DOMContentLoaded', () => {
-    if (localStorage.getItem('darkMode') === 'enabled') {
-        document.body.classList.add('dark-mode');
-    }
-});
+}
