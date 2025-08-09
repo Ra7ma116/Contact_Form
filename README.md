@@ -25,7 +25,7 @@ To run this project locally, follow these simple steps:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/Ra7ma116/Contact_Form.git]
+    git clone https://github.com/Ra7ma116/Contact_Form.git
     ```
 
 2.  **Navigate to the project directory:**
