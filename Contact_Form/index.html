@@ -1,42 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lively Contact Form with Dark Mode</title>
+    <title>Enhanced Lively Contact Form with Dark Mode</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="assets/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
 </head>
+
 <body>
     <div class="contact-form-container">
         <div class="dark-mode-toggle">
             <span>Dark Mode</span>
             <div class="toggle-switch" onclick="toggleDarkMode()"></div>
         </div>
-        <h2>Contact Us</h2>
-        <div class="form-group">
+
+        <h2>Get In Touch</h2>
+
+        <div class="success-message" id="successMessage">
+            <i class="fas fa-check-circle"></i> Your message has been sent successfully!
+        </div>
+
+        <div class="form-group floating-label">
+            <input type="text" id="name" name="name" placeholder=" " required>
             <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Your Full Name">
-            <div class="error-message" id="nameError">Please enter your full name</div>
+            <div class="error-message" id="nameError">
+                <i class="fas fa-exclamation-circle"></i> Please enter your full name
+            </div>
         </div>
-        <div class="form-group">
+
+        <div class="form-group floating-label">
+            <input type="email" id="email" name="email" placeholder=" " required>
             <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="Your Email Address">
-            <div class="error-message" id="emailError">Please enter a valid email address</div>
+            <div class="error-message" id="emailError">
+                <i class="fas fa-exclamation-circle"></i> Please enter a valid email address
+            </div>
         </div>
-        <div class="form-group">
+
+        <div class="form-group floating-label">
+            <input type="text" id="subject" name="subject" placeholder=" " required>
             <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" placeholder="Subject">
-            <div class="error-message" id="subjectError">Please enter a subject</div>
+            <div class="error-message" id="subjectError">
+                <i class="fas fa-exclamation-circle"></i> Please enter a subject
+            </div>
         </div>
-        <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Your Message"></textarea>
-            <div class="error-message" id="messageError">Please enter a message</div>
+
+        <div class="form-group floating-label" style="position: relative;">
+            <textarea id="message" name="message" placeholder=" " required></textarea>
+            <label for="message">Your Message</label>
+            <div class="char-counter" id="charCounter">0/500</div>
+            <div class="error-message" id="messageError">
+                <i class="fas fa-exclamation-circle"></i> Please enter your message (minimum 10 characters)
+            </div>
         </div>
-        <button class="submit-btn" onclick="validateForm()">Submit</button>
+
+        <button class="submit-btn" onclick="validateForm()">
+            <span id="submitText">Send Message</span>
+            <span id="submitLoader" style="display: none;">
+                <i class="fas fa-spinner fa-spin"></i> Sending...
+            </span>
+        </button>
     </div>
 
-    <script src="assets/main.js"></script>
+    <script src="assets/main.js">
+        
+    </script>
 </body>
+
 </html>
